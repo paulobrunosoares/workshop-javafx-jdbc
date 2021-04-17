@@ -27,19 +27,20 @@ public class MainViewController implements Initializable {
 	@FXML
 	private MenuItem menuItemAbout;
 
+	// Button Action
 	@FXML
 	public void onMenuItemSellerAction() {
 		System.out.println("onMenuItemSellerAction");
 	}
 	@FXML
 	public void onMenuItemDepartmentAction() {
-		System.out.println("onMenuItemDepartmentAction");
+		loadView("/gui/DepartmentList.fxml");
 	}
 	@FXML
 	public void onMenuItemAboutAction() {
 		loadView("/gui/About.fxml");
 	}
-
+	// End Button Action
 	
 	@Override
 	public void initialize(URL uri, ResourceBundle rb) {
