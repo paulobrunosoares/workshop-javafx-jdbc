@@ -23,7 +23,7 @@ import model.entities.Department;
 import model.exceptions.ValidationException;
 import model.services.DepartmentService;
 
-public class DepartmentFromController implements Initializable {
+public class DepartmentFormController implements Initializable {
 
 	private Department entity;
 	private DepartmentService service;
@@ -119,7 +119,7 @@ public class DepartmentFromController implements Initializable {
 			throw new IllegalStateException("Entity was null");
 		}
 		txtId.setText(String.valueOf(entity.getId()));
-		txtId.setText(entity.getName());
+		txtName.setText(entity.getName());
 
 	}
 	
