@@ -10,6 +10,7 @@ import java.util.List;
 
 import db.DB;
 import db.DbException;
+import db.DbIntegrityException;
 import model.dao.DepartmentDao;
 import model.entities.Department;
 
@@ -85,7 +86,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 			st.executeUpdate();
 
 		} catch (SQLException e) {
-			throw new DbException(e.getMessage());
+			throw new DbIntegrityException(e.getMessage());
 		} finally {
 			DB.closeStatement(st);
 		}
@@ -132,8 +133,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement("SELECT department.* " // colunas
-					+ "FROM department "
-					+ "ORDER BY Name");// tabela
+					+ "FROM department " + "ORDER BY Name");// tabela
 
 			rs = st.executeQuery();
 			List<Department> list = new ArrayList<>();
